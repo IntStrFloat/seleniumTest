@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input type="text" id="input1" name="input1" />
+    <p id="message"></p>
+    <script>
+      document.getElementById('input1').addEventListener('change', function () {
+        let value = this.value;
+        if (isNaN(Date.parse(value))) {
+          document.getElementById('message').innerText =
+            'В поле input1 введенное числовое значение, хотя ожидалась дата.';
+        } else {
+          document.getElementById('message').innerText = '';
+        }
+      });
+    </script>
+  </body>
+</html>

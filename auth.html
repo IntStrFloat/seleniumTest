@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form id="loginForm">
+      <label for="username">Имя пользователя:</label><br />
+      <input type="text" id="username" name="username" /><br />
+      <p id="usernameError" style="color: red"></p>
+      <label for="password">Пароль:</label><br />
+      <input type="password" id="password" name="password" /><br />
+      <p id="passwordError" style="color: red"></p>
+      <input type="submit" id="login" name="login" value="Войти" />
+    </form>
+    <p id="status"></p>
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        let username = document.getElementById('username').value;
+        let password = document.getElementById('password').value;
+        if (username.length < 3) {
+          document.getElementById('usernameError').innerText =
+            'Ошибка: имя пользователя должно содержать не менее 3 символов.';
+        } else {
+          document.getElementById('usernameError').innerText = '';
+        }
+        if (password.length < 3) {
+          document.getElementById('passwordError').innerText =
+            'Ошибка: пароль должен содержать не менее 3 символов.';
+        } else {
+          document.getElementById('passwordError').innerText = '';
+        }
+        if (
+          username === 'user' &&
+          password === 'password' &&
+          username.length >= 3 &&
+          password.length >= 3
+        ) {
+          document.getElementById('status').innerText = 'Успешная авторизация.';
+        } else if (username.length >= 3 && password.length >= 3) {
+          document.getElementById('status').innerText = 'Ошибка авторизации.';
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button type="button" id="button1" name="button1">Нажми меня</button>
+    <p id="buttonClicked"></p>
+    <script>
+      document.getElementById('button1').addEventListener('click', function () {
+        document.getElementById('buttonClicked').innerText = 'Кнопка нажата.';
+      });
+    </script>
+  </body>
+</html>
